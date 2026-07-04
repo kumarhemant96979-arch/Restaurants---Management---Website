@@ -7,18 +7,18 @@ def signin(request):
     if request.method=='POST':
         username=request.POST.get('username')
         password=request.POST.get('password')
-        email=request.POST.get('emial')
+        email=request.POST.get('email')
 
         User.objects.create(username=username,password=password,email=email)
         return redirect('login')
     
-    return render(request,'signup_page.html')
+    return render(request,'signin_page.html')
 
 def login(request):
     if request.method=='POST':
         username=request.POST.get('username')
         password=request.POST.get('password')
-        email=request.POST.get('emial')
+        email=request.POST.get('email')
 
         user=User.objects.filter(username=username,password=password,email=email).first()
 
