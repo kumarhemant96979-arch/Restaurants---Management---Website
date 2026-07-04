@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from authsys import views as authsys_views
+from home import views as home_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',authsys_views.signin,name='signin'),
+    path('login/',authsys_views.login,name='login'),
+    path('logout/',authsys_views.logout,name='logout'),
+    path('delete_accout/',authsys_views.delete_account,name='delete_account'),
+    path('home/',home_views.home,name='home')
+    
 ]
