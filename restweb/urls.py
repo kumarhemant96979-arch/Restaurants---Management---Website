@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from authsys import views as authsys_views
 from home import views as home_views
+from dashboard import views as dashboard_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +26,7 @@ urlpatterns = [
     path('login/',authsys_views.login,name='login'),
     path('logout/',authsys_views.logout,name='logout'),
     path('delete_accout/',authsys_views.delete_account,name='delete_account'),
-    path('home/',home_views.home,name='home')
-    
+    path('home/',home_views.home,name='home'),
+    path('admin_login/',authsys_views.admin_login,name='admin_login'),
+    path('dashboard/',dashboard_views.dashboard,name='dashboard'),
 ]

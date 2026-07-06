@@ -39,6 +39,21 @@ def delete_account(request):
     user.delete()
     return redirect('signin')
 
+def admin_login(request):
+    if request.method=='POST':
+        admin_name=request.POST.get("admin_name")
+        admin_key=request.POST.get("admin_key")
+        admin_email=request.POST.get("admin_email")
+
+        admin=Admin.objects.filter(admin_name=admin_name,admin_key=admin_key,admin_email=admin_email).first()
+
+        if admin:
+            request.session['admin_id']=admin.id
+        return redirect('dashboard')
+    
+    return render(request,'admin_login.html')
+
+
 
 
 
