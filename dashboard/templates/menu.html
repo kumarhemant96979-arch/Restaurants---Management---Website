@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Add your food items here.</h3>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+       <input type="text" name="food_name" placeholder="Food name">
+       <input type="text" name="description" placeholder="description">
+       <input type="text" name="category" placeholder="category">
+       <input type="number" name="price" placeholder="price">
+       <button type="submit">Submit</button>
+    </form>
+    <table>
+        <tr>
+            <th>S.no</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>image</th>
+            <th>category</th>
+            <th>price</th>
+            <th>avaibility</th>
+        </tr>
+        {% for food in foods %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>food.food_name</td>
+            <td>food.description</td>
+            <td>food.image</td>
+            <td>food.category</td>
+            <td>food.price</td>
+            <td>{% if is_available %}
+                <p>Available</p>
+                {% else %}
+                <p>Not available</p>
+                {% endif %}
+            </td>
+            <td><a href="{% url 'delete_food' food.id %}">Delete</a></td>
+            <td><a href="{% url 'update_food' food.id %}">Update</a></td>
+        </tr>   
+        {% endfor %}
+    </table>
+</body>
+</html>
