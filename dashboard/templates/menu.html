@@ -8,12 +8,14 @@
 <body>
     <h3>Add your food items here.</h3>
     <hr>
-    <form method="POST">
+    <form method="POST"
+    enctype="multipart/form-data">
         {% csrf_token %}
        <input type="text" name="food_name" placeholder="Food name">
        <input type="text" name="description" placeholder="description">
        <input type="text" name="category" placeholder="category">
        <input type="number" name="price" placeholder="price">
+       <input type="file" name="image" placeholder="Upload image">
        <button type="submit">Submit</button>
     </form>
     <table>
@@ -29,12 +31,12 @@
         {% for food in foods %}
         <tr>
             <td>{{forloop.counter}}</td>
-            <td>food.food_name</td>
-            <td>food.description</td>
-            <td>food.image</td>
-            <td>food.category</td>
-            <td>food.price</td>
-            <td>{% if is_available %}
+            <td>{{food.food_name}}</td>
+            <td>{{food.description}}</td>
+            <td><img src="{{food.image.url}}" width="80"></td>
+            <td>{{food.category}}</td>
+            <td>{{food.price}}</td>
+            <td>{% if food.is_available %}
                 <p>Available</p>
                 {% else %}
                 <p>Not available</p>

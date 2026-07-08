@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Update {{foof.food_name}}</h3>
+    <hr>
+    <form method="POST"
+    enctype="multipart/form-data">
+        {% csrf_token %}
+       <input type="text" name="food_name" placeholder="Food name">
+       <input type="text" name="description" placeholder="description">
+       <input type="text" name="category" placeholder="category">
+       <input type="number" name="price" placeholder="price">
+       <input type="file" name="image" placeholder="Upload image">
+       <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

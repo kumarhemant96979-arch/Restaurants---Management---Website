@@ -30,7 +30,7 @@ urlpatterns = [
     path('admin_login/',authsys_views.admin_login,name='admin_login'),
     path('dashboard/',dashboard_views.dashboard,name='dashboard'),
     path('delete/<int:id>/',dashboard_views.delete_food,name='delete_food'),
-    path('update/<int:i>/',dashboard_views.update_food,name='update_food'),
+    path('update/<int:id>/',dashboard_views.update_food,name='update_food'),
     path('add_food/',dashboard_views.add_food,name='add_food')
 
 ]

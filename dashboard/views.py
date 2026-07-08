@@ -20,16 +20,16 @@ def add_food(request):
         category=request.POST.get("category")
 
         Food.objects.create(food_name=food_name,description=description,image=image,price=price,category=category)
-        
-        
         return redirect('dashboard')
     
-    return render(request,'menu.html')
+    foods=Food.objects.all()
+    
+    return render(request,'menu.html',context={'foods':foods})
 
 def delete_food(request,id):
     food=Food.objects.get(id=id)
     food.delete()
-    return redirect('add_food',context={'food':food})
+    return redirect('add_food')
 
 def update_food(request,id):
     food=Food.objects.get(id=id)
