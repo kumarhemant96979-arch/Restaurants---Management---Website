@@ -33,5 +33,6 @@ urlpatterns = [
     path('update/<int:id>/',dashboard_views.update_food,name='update_food'),
     path('add_food/',dashboard_views.add_food,name='add_food'),
     path('view_menu/',home_views.view_menu,name="view_menu"),
+    path('profile/',home_views.profile,name='profile'),
 
 ]

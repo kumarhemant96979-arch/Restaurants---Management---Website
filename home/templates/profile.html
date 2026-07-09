@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Profile</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="phone_number" >
+        <input type="text" name="address">
+        <button type="submit" style="background-color: aqua; border-radius: 5px;">Submit</button>
+    </form>
+    
+    <b>Name:</b><p> {{user.username}}</p>
+    <b>email:</b><p>{{user.email}}/p>
+    <b>Mobile No.:</b><p>{{user.phone_number}}</p>
+    <b>Address:</b><p>{{user.address}}</p>
+</body>
+</html>

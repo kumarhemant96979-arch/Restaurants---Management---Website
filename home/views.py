@@ -20,3 +20,26 @@ def view_menu(request):
 
     return render(request,'view_menu.html',context={'foods':foods})
 
+@login_required_custom2
+def profile(request):
+    user_id=request.session.get("user_id")
+    user=User.objects.get(id=user_id)
+    if request.method=="POST":
+        phone_number=request.POST.get("phone_number")
+        address=request.POST.get("address")
+
+        user.phone_number=phone_number
+        user.address=address
+        print(request.POST)
+        print(phone_number)
+        print(address)
+        user.save()
+
+        return redirect('home')
+   
+    return render(request,'profile.html',context={'user':user})
+
+
+
+
+
