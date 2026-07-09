@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Add to Cart</h3>
+        <p><b>User: </b> {{user.username}}</p>
+        <table>
+            <tr>
+                <th>S.no</th>
+                <th>Food name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+            {% for item in cart_items %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ item.food.food_name }}</td>
+                <td>{{ item.food.price }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.food.price|add:0 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+</body>
+</html>

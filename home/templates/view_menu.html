@@ -16,7 +16,7 @@
             <th>category</th>
             <th>price</th>
             <th>avaibility</th>
-            <th>Order</th>
+            <th>Add to cart</th>
         </tr>
         {% for food in foods %}
         <tr>
@@ -32,6 +32,7 @@
                 <p>Not available</p>
                 {% endif %}
             </td>
+            <td><a href="{% url 'cart' food.id %}">Add</a></td>
         </tr>   
         {% endfor %}  
 </body>

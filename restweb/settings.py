@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'authsys',
     'home',
     'dashboard',
-    'ordersys',
+    'cartsystem',
+    
 ]
 
 MIDDLEWARE = [

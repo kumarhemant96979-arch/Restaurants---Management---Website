@@ -19,6 +19,7 @@ from django.urls import path
 from authsys import views as authsys_views
 from home import views as home_views
 from dashboard import views as dashboard_views
+from cartsystem import views as cart_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,5 +35,5 @@ urlpatterns = [
     path('add_food/',dashboard_views.add_food,name='add_food'),
     path('view_menu/',home_views.view_menu,name="view_menu"),
     path('profile/',home_views.profile,name='profile'),
-
+    path('cart/<int:id>/',cart_views.cart,name='cart'),
 ]
